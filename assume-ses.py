@@ -6,7 +6,7 @@ from botocore.exceptions import ClientError
 sts_client = boto3.client('sts')
 
 assumed_role_object=sts_client.assume_role(
-    RoleArn="arn:aws:iam::383570952416:role/sts-ses-sendmail-role",
+    RoleArn="arn:aws:iam::123456789012:role/sts-ses-sendmail-role",
     RoleSessionName="AssumeRoleSession1"
 )
 credentials=assumed_role_object['Credentials']
@@ -17,16 +17,16 @@ AWS_SESSION_TOKEN=credentials['SessionToken']
 
 # Replace sender@example.com with your "From" address.
 # This address must be verified with Amazon SES.
-SENDER = "Sean Yang <comdaze@gmail.com>"
+SENDER = "Tom Soya <user1@gmail.com>"
 
 # Replace recipient@example.com with a "To" address. If your account 
 # is still in the sandbox, this address must be verified.
-RECIPIENT = "comdaze@gmail.com"
+RECIPIENT = "user2@gmail.com"
 
 # Specify a configuration set. If you do not want to use a configuration
 # set, comment the following variable, and the 
 # ConfigurationSetName=CONFIGURATION_SET argument below.
-CONFIGURATION_SET = "settest"
+CONFIGURATION_SET = "ConfigSet1"
 
 # If necessary, replace us-west-2 with the AWS Region you're using for Amazon SES.
 AWS_REGION = "us-east-1"
